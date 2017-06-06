@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import type { Children } from 'react';
+import { Header } from '../../components';
 
 export default class App extends Component {
   props: {
@@ -9,7 +10,8 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="styles.container">
+        <Header />
         {this.props.children}
       </div>
     );

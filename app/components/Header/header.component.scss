@@ -1,0 +1,21 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    background: #555555;
+    height: 60px;
+}
+
+.brand {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.brandImg {
+    width: 60px;
+}
+
+.brandIcon {
+    margin: 0 5px;
+}
