@@ -6,10 +6,14 @@ body {
   background-color: #FBFBFB;
   font-family: 'Open Sans', sans-serif;
   overflow-y: hidden;
-  display: flex;
-  flex-direction: column;
 	margin: 0;
 	padding: 0;
+}
+
+#root, div[data-reactroot] {
+	height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 h2 {

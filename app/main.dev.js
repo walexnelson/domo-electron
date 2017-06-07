@@ -11,7 +11,7 @@
  * @flow
  */
 import { app, BrowserWindow } from 'electron';
-import MenuBuilder from './menu';
+import MenuBuilder from './utils/menu';
 
 let mainWindow = null;
 
@@ -40,7 +40,6 @@ const installExtensions = async () => {
     .catch(console.log);
 };
 
-
 app.on('window-all-closed', () => {
   // Respect the OSX convention of having the application in memory even
   // after all windows have been closed
@@ -58,10 +57,12 @@ app.on('ready', async () => {
   mainWindow = new BrowserWindow({
     show: false,
     width: 1200,
-    height: 830
+    height: 830,
+    minWidth: 600,
+    minHeight: 450
   });
 
-  mainWindow.loadURL(`file://${__dirname}/app.html`);
+  mainWindow.loadURL(`file://${__dirname}/index.html`);
 
   mainWindow.webContents.on('did-finish-load', () => {
     if (!mainWindow) {

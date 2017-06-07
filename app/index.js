@@ -4,7 +4,7 @@ import { AppContainer } from 'react-hot-loader';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Root from './containers/Root';
 import { configureStore, history } from './store/configureStore';
-import './app.global.scss';
+import './global.scss';
 
 const store = configureStore();
 

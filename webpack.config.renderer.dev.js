@@ -26,9 +26,9 @@ const manifest = path.resolve(dll, 'vendor.json');
  */
 if (!(fs.existsSync(dll) && fs.existsSync(manifest))) {
   console.log(chalk.black.bgYellow.bold(
-    'The DLL files are missing. Sit back while we build them for you with "npm run build-dll"'
+    'The DLL files are missing. Sit back while we build them for you with "npm run build:dll"'
   ));
-  execSync('npm run build-dll');
+  execSync('npm run build:dll');
 }
 
 export default merge.smart(baseConfig, {
@@ -40,7 +40,7 @@ export default merge.smart(baseConfig, {
     'react-hot-loader/patch',
     `webpack-dev-server/client?http://localhost:${port}/`,
     'webpack/hot/only-dev-server',
-    path.join(__dirname, 'app/index.js'),
+    path.join(__dirname, 'app', 'index.js'),
   ],
 
   output: {
