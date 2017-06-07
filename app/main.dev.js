@@ -1,6 +1,5 @@
 /* eslint global-require: 0, flowtype-errors/show-errors: 0 */
 
-// @flow
 import { app, BrowserWindow, ipcMain } from 'electron';
 import MenuBuilder from './utils/menu';
 import Events from './utils/events';
