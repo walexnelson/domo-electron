@@ -1,9 +1,8 @@
+import { ipcRenderer } from 'electron';
+
 export default class IOService {
   getLogins() {
-    return [
-      { type: 'basic', user: 'alex.nelson@domo.com', instance: 'anthem.domo.com', sid: '', token: '' },
-      { type: 'basic', user: 'alex.nelson@domo.com', instance: 'anthem.domo.com', sid: '', token: '' },
-      { type: 'oauth', token: '', secret: '' }
-    ];
+    const logins = ipcRenderer.sendSync('get-logins', 'now');
+    return Promise.resolve(logins);
   }
 }

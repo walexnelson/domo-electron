@@ -1,8 +1,6 @@
-import {
-  LOGIN_REQUESTED,
-  LOGIN_RETRIEVED,
-  LOGIN_FAILED
-} from '../../actions/login.actions';
+import { actions } from '../../actions/login.actions';
+
+const { LOGIN_REQUESTED, LOGIN_RETRIEVED, LOGIN_FAILED } = actions;
 
 function handleLoginsFailed(state, action) {
   return {
