@@ -1,11 +1,22 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 import Container from './app.container';
+
+const mockStore = configureMockStore([thunk]);
+const storeStateMock = {
+  login: {
+    isLoading: false,
+    logins: [],
+  },
+};
 
 
 function setup() {
-  const component = shallow(<Container />);
+  const store = mockStore(storeStateMock);
+  const component = shallow(<Container store={store} />).shallow();
   return {
     component
   };
