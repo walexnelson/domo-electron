@@ -4,7 +4,6 @@ import { shallow } from 'enzyme';
 import { Provider } from 'react-redux';
 import Root from './root.container';
 
-
 function setup() {
   const mockStore = {
     subscribe: () => {},
