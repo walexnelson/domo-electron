@@ -13,10 +13,9 @@ const storeStateMock = {
   },
 };
 
-
 function setup() {
   const store = mockStore(storeStateMock);
-  const component = shallow(<Container store={store} />).shallow();
+  const component = shallow(<Container store={store}><span /></Container>).shallow();
   return {
     component
   };
