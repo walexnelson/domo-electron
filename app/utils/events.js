@@ -1,7 +1,7 @@
 /* eslint no-param-reassign: ["error", { "props": false }] */
 
 module.exports = {
-  getLogins: (event, args) => {
+  getLogins: (event) => {
     event.returnValue = [
       { type: 'basic', user: 'alex.nelson@domo.com', instance: 'anthem.domo.com', sid: '', token: '' },
       { type: 'basic', user: 'alex.nelson@domo.com', instance: 'anthem.domo.com', sid: '', token: '' },
