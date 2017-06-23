@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import IconAdd from 'material-ui/svg-icons/content/add';
 import styles from './header.component.scss';
 import DomoLogo from '../../../resources/icons/domo-logo.png';
@@ -9,7 +10,7 @@ export default class Header extends Component {
     return (
       <header className={styles.header}>
         <div className={styles.brand}>
-          <img alt="Domo" src={DomoLogo} className={styles.brandImg} />
+          <Link to="/"><img alt="Domo" src={DomoLogo} className={styles.brandImg} /></Link>
           <IconAdd className={styles.brandIcon} />
           <img alt="Electron" src={ElectronLogo} className={styles.brandImg} />
         </div>

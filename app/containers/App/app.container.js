@@ -12,9 +12,18 @@ class App extends Component {
   }
 
   render() {
+    const listItems = this.props.logins.map(login =>
+      <li key={login}>{login}</li>
+    );
+
     const content = this.props.isLoading
       ? <h2>Loading...</h2>
-      : <main className={styles.content}>{this.props.children}</main>;
+      : (
+        <main className={styles.content}>
+          <ul>{listItems}</ul>
+          {this.props.children}
+        </main>
+        );
 
     return (
       <div className={styles.appContainer}>
@@ -28,6 +37,7 @@ class App extends Component {
 App.propTypes = {
   children: PropTypes.node.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  logins: PropTypes.arrayOf(PropTypes.string).isRequired,
   dispatch: PropTypes.func.isRequired
 };
 

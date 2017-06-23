@@ -72,4 +72,5 @@ app.on('ready', async () => {
 });
 
 // Register IPC Event Listeners
-ipcMain.on('get-logins', Events.getLogins);
+ipcMain.on('LOGINS:LIST', Events.getLoginHistory);
+ipcMain.on('DATASETS:LIST', Events.listDatasets);

@@ -1,11 +1,9 @@
-import { IOService } from '../services';
-
-const io = new IOService();
+import { ipcRenderer } from 'electron';
 
 export const actions = {
-  LOGIN_REQUESTED: 'LOGIN_REQUESTED',
-  LOGIN_RETRIEVED: 'LOGIN_RETRIEVED',
-  LOGIN_FAILED: 'LOGIN_FAILED'
+  LOGIN_REQUESTED: 'LOGINS:LIST',
+  LOGIN_RETRIEVED: 'LOGINS:LIST:SUCCESS',
+  LOGIN_FAILED: 'LOGINS:LIST:FAILED'
 };
 
 export function loginsRequested() {
@@ -29,7 +27,7 @@ export function loginsFailed(error) {
 export const getLogins = () => (dispatch) => {
   dispatch(loginsRequested());
 
-  return io.getLogins()
-    .then(res => dispatch(loginsRetrieved(res)))
-    .catch(err => dispatch(loginsFailed(err)));
+  ipcRenderer.send(actions.LOGIN_REQUESTED);
+  ipcRenderer.on(actions.LOGIN_RETRIEVED, (event, args) => dispatch(loginsRetrieved(args)));
+  ipcRenderer.on(actions.LOGIN_FAILED, (event, args) => dispatch(loginsFailed(args)));
 };
