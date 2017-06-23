@@ -14,6 +14,6 @@ function setup() {
 describe('(Container): Home', () => {
   it('should render', () => {
     const { component } = setup();
-    expect(component.first().type()).to.equal('h1');
+    expect(component.first().type()).to.equal('div');
   });
 });

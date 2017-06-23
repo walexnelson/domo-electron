@@ -1,19 +1,30 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import Container from './home.container';
-
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import Container from './data.container';
 
 function setup() {
-  const component = shallow(<Container />);
+  const mockStore = configureMockStore([thunk]);
+  const storeStateMock = {
+    data: {
+      isLoading: false,
+      datasets: [],
+    },
+  };
+
+
+  const store = mockStore(storeStateMock);
+  const component = shallow(<Container store={store}><span /></Container>).shallow();
   return {
     component
   };
 }
 
-describe('(Container): Home', () => {
+describe('(Container): Data', () => {
   it('should render', () => {
     const { component } = setup();
-    expect(component.first().type()).to.equal('h1');
+    expect(component.first().type()).to.equal('div');
   });
 });

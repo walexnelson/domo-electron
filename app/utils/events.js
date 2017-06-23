@@ -47,11 +47,7 @@ const service = {
   listDatasets: (event, { sort, limit, offset }) => {
     service.getActiveSession().datasets
       .list(sort, limit, offset)
-      .then(res => {
-        console.log('ListDataset', res);
-        event.sender.send('DATASETS:LIST:SUCCESS', res);
-        return res;
-      })
+      .then(res => event.sender.send('DATASETS:LIST:SUCCESS', res))
       .catch(err => event.sender.send('DATASETS:LIST:FAILED', err));
   }
 };
